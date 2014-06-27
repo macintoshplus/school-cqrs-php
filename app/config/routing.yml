@@ -1,5 +1,5 @@
 jbnahan_scool:
-    resource: "@JbnahanScoolBundle/Resources/config/routing.yml"
+    resource: "@JbnahanSchoolBundle/Resources/config/routing.yml"
     prefix:   /
 
 
