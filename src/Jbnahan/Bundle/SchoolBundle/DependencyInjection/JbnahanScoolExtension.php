@@ -26,5 +26,6 @@ class JbnahanSchoolExtension extends Extension
         $loader->load('services.yml');
         $loader->load('commands.yml');
         $loader->load('listeners.yml');
+        $loader->load('validation.yml');
     }
 }

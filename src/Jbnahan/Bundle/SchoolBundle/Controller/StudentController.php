@@ -14,9 +14,15 @@ class StudentController extends Controller
         $command = new RegisterStudentCommand();
         
         $form = $this->createFormBuilder($command)
-            ->add('firstName', 'text')
-            ->add('lastName', 'text')
-            ->add('bornOn', 'date')
+            ->add('firstName', 'text',array(
+                'required'=>true
+            ))
+            ->add('lastName', 'text',array(
+                'required'=>true
+            ))
+            ->add('bornOn', 'date',array(
+                'required'=>true
+            ))
             ->add('save', 'submit')
             ->getForm();
 
