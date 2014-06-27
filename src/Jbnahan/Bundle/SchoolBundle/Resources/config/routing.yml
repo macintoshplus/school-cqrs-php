@@ -1,0 +1,11 @@
+jbnahan_scool_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: JbnahanScoolBundle:Default:index }
+
+jbnahan_scool_student_register:
+    path:     /student/register
+    defaults: { _controller: JbnahanScoolBundle:Student:register }
+
+jbnahan_scool_student_show:
+    path:     /student/show
+    defaults: { _controller: JbnahanScoolBundle:Student:show }

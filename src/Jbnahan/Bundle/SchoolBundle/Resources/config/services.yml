@@ -1,0 +1,7 @@
+parameters:
+#    jbnahan_scool.example.class: Jbnahan\Bundle\ScoolBundle\Example
+
+services:
+#    jbnahan_scool.example:
+#        class: %jbnahan_scool.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

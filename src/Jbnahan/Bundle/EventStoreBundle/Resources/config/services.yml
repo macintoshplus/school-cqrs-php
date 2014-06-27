@@ -1,0 +1,18 @@
+parameters:
+#    jbnahan_event_store.example.class: Jbnahan\Bundle\EventStoreBundle\Example
+
+services:
+#    jbnahan_event_store.example:
+#        class: %jbnahan_event_store.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+# In order to make lite-cqrs works on last dev-master modification
+    cqrs.event_store:
+        class: LiteCQRS\EventStore\OptimisticLocking
+        factory_class:  Jbnahan\ES\EventStoreFactory
+        factory_method: get
+        arguments: [@doctrine]
+
+    cqrs.event_source.repository:
+        class: LiteCQRS\EventStore\EventSourceRepository
+        arguments: [@cqrs.event_store, @litecqrs.event_message_bus]

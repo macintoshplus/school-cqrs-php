@@ -1,0 +1,21 @@
+Jbnahan\Bundle\ScoolBundle\Entity\Student:
+    type: entity
+    table: students_view
+    repositoryClass: Jbnahan\Bundle\ScoolBundle\Entity\StudentRepository
+    id:
+        id:
+            type: string
+            length: 36
+            id: true
+    fields:
+        firstName:
+            type: string
+            length: 255
+        lastName:
+            type: string
+            length: 255
+        version:
+            type: integer
+        bornOn:
+            type: datetime
+    lifecycleCallbacks: {  }
