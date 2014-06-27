@@ -10,6 +10,7 @@ namespace Jbnahan\Domain\Scool\Command;
 
 use LiteCQRS\Command;
 
+
 /**
  * Description of RegisterStudent
  *
@@ -31,4 +32,5 @@ class RegisterStudentCommand implements Command {
         $this->bornOn = $bornOn;
         $this->studentId = $id;*/
     }
+    
 }
