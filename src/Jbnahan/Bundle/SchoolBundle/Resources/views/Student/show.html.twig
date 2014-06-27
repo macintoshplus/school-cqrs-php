@@ -4,4 +4,21 @@
 
 {% block body %}
 <h1>Welcome to the Student:show page</h1>
+
+<table>
+<tbody>
+<tr>
+<td>First Name : </td>
+<td>{{ student.firstName }}</td>
+</tr>
+<tr>
+<td>Last name : </td>
+<td>{{ student.lastName }}</td>
+</tr>
+<tr>
+<td>Born On</td>
+<td>{{ student.bornOn|date('d-m-Y') }}</td>
+</tr>
+</tbody>
+</table>
 {% endblock %}

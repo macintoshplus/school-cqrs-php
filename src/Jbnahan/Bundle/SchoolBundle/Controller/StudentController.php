@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Rhumsaa\Uuid\Uuid;
 use Jbnahan\Domain\School\Command\RegisterStudentCommand;
+use Jbnahan\Bundle\SchoolBundle\Entity\Student;
 
 class StudentController extends Controller
 {
@@ -38,10 +39,11 @@ class StudentController extends Controller
                 'form' => $form->createView(),
             ));    }
 
-    public function showAction()
+    public function showAction(Request $request, Student $id)
     {
         return $this->render('JbnahanSchoolBundle:Student:show.html.twig', array(
-                // ...
-            ));    }
+                'student'=>$id,
+            ));
+    }
 
 }
