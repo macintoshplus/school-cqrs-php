@@ -7,5 +7,5 @@ jbnahan_school_student_register:
     defaults: { _controller: JbnahanSchoolBundle:Student:register }
 
 jbnahan_school_student_show:
-    path:     /student/show
+    path:     /student/show/{id}
     defaults: { _controller: JbnahanSchoolBundle:Student:show }

@@ -33,6 +33,7 @@ class StudentController extends Controller
             $command->studentId = Uuid::uuid1();
 
             $this->get('command_bus')->handle($command);
+            $this->redirect($this->generateUrl('jbnahan_school_student_show',array('id'=>$command->studentId)));
         }
         
         return $this->render('JbnahanSchoolBundle:Student:register.html.twig', array(
