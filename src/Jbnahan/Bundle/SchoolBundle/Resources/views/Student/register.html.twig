@@ -4,5 +4,12 @@
 
 {% block body %}
 <h1>Welcome to the Student:register page</h1>
-{{ form(form) }}
+<form action="" method="POST" novalidate="novalidate">
+    <p>{{ form_row(form.firstName) }}</p>
+    
+    <p>{{ form_row(form.LastName) }}</p>
+    
+    <p>{{ form_row(form.bornOn) }}</p>
+</form>
+
 {% endblock %}
