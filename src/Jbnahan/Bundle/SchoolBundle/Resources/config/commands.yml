@@ -2,14 +2,14 @@ parameters:
 #    afsy_blackjack.example.class: Afsy\Bundle\BlackjackBundle\Example
 
 services:
-    jbnahan_scool.student.command_handler:
-        class: Jbnahan\Domain\Scool\CommandHandler\StudentEngineHandler
+    jbnahan_school.student.command_handler:
+        class: Jbnahan\Domain\School\CommandHandler\StudentEngineHandler
         arguments: [@cqrs.event_source.repository]
         tags:
             - { name: lite_cqrs.command_handler }
             
-    jbnahan_scool.class.command_handler:
-        class: Jbnahan\Domain\Scool\CommandHandler\ClassEngineHandler
+    jbnahan_school.class.command_handler:
+        class: Jbnahan\Domain\School\CommandHandler\ClassEngineHandler
         arguments: [@cqrs.event_source.repository]
         tags:
             - { name: lite_cqrs.command_handler }

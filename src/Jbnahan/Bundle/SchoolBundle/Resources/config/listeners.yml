@@ -1,6 +1,6 @@
 services:
-    afsy_blackjack.game_view.listener:
-        class: Jbnahan\Domain\Scool\Listener\StudentViewListener
+    jbnahan_school.student_view.listener:
+        class: Jbnahan\Domain\School\Listener\StudentViewListener
         arguments: [@doctrine]
         tags:
             - { name: lite_cqrs.event_handler }

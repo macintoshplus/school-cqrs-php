@@ -6,10 +6,10 @@
  * and open the template in the editor.
  */
 
-namespace Jbnahan\Domain\Scool\Event;
+namespace Jbnahan\Domain\School\Event;
 
 use LiteCQRS\DefaultDomainEvent;
-use Jbnahan\Domain\Scool\Model\StudentIdentity;
+use Jbnahan\Domain\School\Model\StudentIdentity;
 
 /**
  * Description of StudentRegistred

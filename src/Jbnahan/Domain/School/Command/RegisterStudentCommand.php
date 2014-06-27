@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace Jbnahan\Domain\Scool\Command;
+namespace Jbnahan\Domain\School\Command;
 
 use LiteCQRS\Command;
 

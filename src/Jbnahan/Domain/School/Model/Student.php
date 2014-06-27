@@ -1,9 +1,9 @@
 <?php
 
-namespace Jbnahan\Domain\Scool\Model;
+namespace Jbnahan\Domain\School\Model;
 
 use LiteCQRS\AggregateRoot;
-use Jbnahan\Domain\Scool\Event\StudentRegistred;
+use Jbnahan\Domain\School\Event\StudentRegistred;
 
 /**
  * Description of Student

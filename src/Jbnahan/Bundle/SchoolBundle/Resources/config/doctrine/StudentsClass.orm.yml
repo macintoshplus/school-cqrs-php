@@ -1,7 +1,7 @@
-Jbnahan\Bundle\ScoolBundle\Entity\StudentsClass:
+Jbnahan\Bundle\SchoolBundle\Entity\StudentsClass:
     type: entity
     table: class_of_students_view
-    repositoryClass: Jbnahan\Bundle\ScoolBundle\Entity\StudentsClassRepository
+    repositoryClass: Jbnahan\Bundle\SchoolBundle\Entity\StudentsClassRepository
     id:
         id:
             type: string

@@ -6,10 +6,10 @@
  * and open the template in the editor.
  */
 
-namespace Jbnahan\Domain\Scool\Event;
+namespace Jbnahan\Domain\School\Event;
 
 use LiteCQRS\DefaultDomainEvent;
-use Jbnahan\Domain\Model\ClassIdentity;
+use Jbnahan\Domain\School\Model\ClassIdentity;
 
 /**
  * Description of ClassOpenedEvent

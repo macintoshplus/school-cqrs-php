@@ -1,6 +1,6 @@
 <?php
 
-namespace Jbnahan\Bundle\ScoolBundle\Entity;
+namespace Jbnahan\Bundle\SchoolBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 

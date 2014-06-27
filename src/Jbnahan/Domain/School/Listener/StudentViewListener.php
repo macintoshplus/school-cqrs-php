@@ -6,10 +6,10 @@
  * and open the template in the editor.
  */
 
-namespace Jbnahan\Domain\Scool\Listener;
+namespace Jbnahan\Domain\School\Listener;
 
-use Jbnahan\Domain\Scool\Event\StudentRegistred;
-use Jbnahan\Bundle\ScoolBundle\Entity\Student;
+use Jbnahan\Domain\School\Event\StudentRegistred;
+use Jbnahan\Bundle\SchoolBundle\Entity\Student;
 
 /**
  * Description of StudentViewListener

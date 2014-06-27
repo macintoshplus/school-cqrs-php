@@ -9,7 +9,7 @@
 namespace Jbnahan\Domain\Model;
 
 use LiteCQRS\AggregateRoot;
-use Jbnahan\Domain\Scool\Event\ClassOpened;
+use Jbnahan\Domain\School\Event\ClassOpened;
 
 /**
  * Description of Class

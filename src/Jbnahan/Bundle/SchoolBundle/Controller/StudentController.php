@@ -1,11 +1,11 @@
 <?php
 
-namespace Jbnahan\Bundle\ScoolBundle\Controller;
+namespace Jbnahan\Bundle\SchoolBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Rhumsaa\Uuid\Uuid;
-use Jbnahan\Domain\Scool\Command\RegisterStudentCommand;
+use Jbnahan\Domain\School\Command\RegisterStudentCommand;
 
 class StudentController extends Controller
 {
@@ -28,13 +28,13 @@ class StudentController extends Controller
             $this->get('command_bus')->handle($command);
         }
         
-        return $this->render('JbnahanScoolBundle:Student:register.html.twig', array(
+        return $this->render('JbnahanSchoolBundle:Student:register.html.twig', array(
                 'form' => $form->createView(),
             ));    }
 
     public function showAction()
     {
-        return $this->render('JbnahanScoolBundle:Student:show.html.twig', array(
+        return $this->render('JbnahanSchoolBundle:Student:show.html.twig', array(
                 // ...
             ));    }
 

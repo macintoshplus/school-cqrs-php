@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace Jbnahan\Domain\Scool\Model;
+namespace Jbnahan\Domain\School\Model;
 
 /**
  * Description of StudentIdentity

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Jbnahan\Domain\Scool\Command;
+namespace Jbnahan\Domain\School\Command;
 
 use LiteCQRS\Command;
 

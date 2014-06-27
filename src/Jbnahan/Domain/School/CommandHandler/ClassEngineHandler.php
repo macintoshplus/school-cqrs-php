@@ -6,9 +6,9 @@
  * and open the template in the editor.
  */
 
-namespace Jbnahan\Domain\Scool\CommandHandler;
+namespace Jbnahan\Domain\School\CommandHandler;
 
-use Jbnahan\Domain\Scool\Command;
+use Jbnahan\Domain\School\Command;
 use Jbnahan\Domain\Model;
 
 /**
