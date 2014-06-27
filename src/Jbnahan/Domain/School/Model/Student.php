@@ -1,11 +1,5 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 namespace Jbnahan\Domain\Scool\Model;
 
 use LiteCQRS\AggregateRoot;
@@ -17,12 +11,37 @@ use Jbnahan\Domain\Scool\Event\StudentRegistred;
  * @author jb
  */
 class Student extends AggregateRoot {
+    
+    /**
+     *
+     * @var StudentIdentity
+     */
     protected $identity;
     
+    /**
+     * 
+     * @param Uuid $id
+     */
     public function __construct($id) {
         $this->setId($id);
     }
     
+    /**
+     * Compute the student Age
+     * @return integer
+     */
+    public function getAge(){
+        $now = date('Y');
+        return $now - $this->identity->bornOn->format('Y');
+    }
+    
+    /**
+     * Apply registration
+     * @param Uuis $id
+     * @param string $firstName
+     * @param string $lastName
+     * @param \DateTime $bornOn
+     */
     public function registration($id, $firstName, $lastName, \DateTime $bornOn) {
         $identity = new StudentIdentity($firstName,$lastName,$bornOn);
         
@@ -31,6 +50,10 @@ class Student extends AggregateRoot {
         $this->apply($event);
     }
     
+    /**
+     * Apply StudentRegistred Event
+     * @param StudentRegistred $event
+     */
     protected function applyStudentRegistred($event) {
         $this->identity = $event->identity;
     }
