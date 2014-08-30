@@ -4,12 +4,12 @@ parameters:
 services:
     jbnahan_school.student.command_handler:
         class: Jbnahan\Domain\School\CommandHandler\StudentEngineHandler
-        arguments: [@cqrs.event_source.repository]
+        arguments: ['@litecqrs.repository']
         tags:
-            - { name: lite_cqrs.command_handler }
-            
+            - { name: 'lite_cqrs.command_handler' }
+
     jbnahan_school.class.command_handler:
         class: Jbnahan\Domain\School\CommandHandler\ClassEngineHandler
-        arguments: [@cqrs.event_source.repository]
+        arguments: ['@litecqrs.repository']
         tags:
-            - { name: lite_cqrs.command_handler }
+            - { name: 'lite_cqrs.command_handler' }

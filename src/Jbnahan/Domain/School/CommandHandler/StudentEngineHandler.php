@@ -23,11 +23,11 @@ class StudentEngineHandler {
         $this->repository = $repository;
     }
     
-    public function registerStudent(Command\RegisterStudentCommand $command){
+    public function RegisterStudent(Command\RegisterStudentCommand $command){
         $student = new Model\Student($command->studentId);
         
-        $student->registration($command->studentId, $command->firstName, $command->lastName, $command->bornOn);
+        $student->registration($command->firstName, $command->lastName, $command->bornOn);
         
-        $this->repository->save($student);
+        //$this->repository->save($student);
     }
 }

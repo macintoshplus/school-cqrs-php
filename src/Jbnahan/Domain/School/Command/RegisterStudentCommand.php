@@ -8,7 +8,7 @@
 
 namespace Jbnahan\Domain\School\Command;
 
-use LiteCQRS\Command;
+use LiteCQRS\DefaultCommand;
 
 
 /**
@@ -16,7 +16,7 @@ use LiteCQRS\Command;
  *
  * @author jb
  */
-class RegisterStudentCommand implements Command {
+class RegisterStudentCommand extends DefaultCommand {
     
     public $studentId;
 
@@ -26,11 +26,6 @@ class RegisterStudentCommand implements Command {
     
     public $bornOn;
     
-    public function __construct(/*$id ,$firstName, $lastName, \DateTime $bornOn*/) {
-        /*$this->firstName = $firstName;
-        $this->lastName = $lastName;
-        $this->bornOn = $bornOn;
-        $this->studentId = $id;*/
-    }
+    
     
 }
