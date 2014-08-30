@@ -1,9 +1,9 @@
 
-Jbnahan\Domain\Command\RegisterStudentCommand:
-    properties:
-        firstName:
-            - NotBlank: ~
-        lastName:
-            - NotBlank: ~
-        bornOn:
-            - Date: ~
+#Jbnahan\Domain\School\Command\RegisterStudentCommand:
+#    properties:
+#        firstName:
+#            - NotBlank: ~
+#        lastName:
+#            - NotBlank: ~
+#        bornOn:
+#            - Date: ~
