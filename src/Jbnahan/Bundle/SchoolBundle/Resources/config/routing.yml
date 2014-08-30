@@ -1,7 +1,3 @@
-jbnahan_school_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: JbnahanSchoolBundle:Default:index }
-
 jbnahan_school_student_register:
     path:     /student/register
     defaults: { _controller: JbnahanSchoolBundle:Student:register }
