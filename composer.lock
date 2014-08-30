@@ -4,59 +4,20 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b74445a464773fc7949a8d109658a0ed",
+    "hash": "d505592f5503df632c712858edc22433",
     "packages": [
         {
-            "name": "beberlei/lite-cqrs",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/beberlei/litecqrs-php.git",
-                "reference": "8e6ae64f6db0a483c460e2295ea884d0680f185d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/beberlei/litecqrs-php/zipball/8e6ae64f6db0a483c460e2295ea884d0680f185d",
-                "reference": "8e6ae64f6db0a483c460e2295ea884d0680f185d",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4",
-                "psr/log": "@stable",
-                "rhumsaa/uuid": "@stable"
-            },
-            "require-dev": {
-                "doctrine/common": ">=2.0,<2.5",
-                "phake/phake": "@stable",
-                "swiftmailer/swiftmailer": "4.*",
-                "symfony/console": ">=2.0,<2.2",
-                "symfony/framework-bundle": ">=2.0,<2.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "LiteCQRS": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Simple Command-Query-Responsibility-Segregation library.",
-            "time": "2013-11-29 09:01:27"
-        },
-        {
             "name": "doctrine/annotations",
-            "version": "v1.1.2",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "40db0c96985aab2822edbc4848b3bd2429e02670"
+                "reference": "d9b1a37e9351ddde1f19f09a02e3d6ee92e82efd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/40db0c96985aab2822edbc4848b3bd2429e02670",
-                "reference": "40db0c96985aab2822edbc4848b3bd2429e02670",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/d9b1a37e9351ddde1f19f09a02e3d6ee92e82efd",
+                "reference": "d9b1a37e9351ddde1f19f09a02e3d6ee92e82efd",
                 "shasum": ""
             },
             "require": {
@@ -64,12 +25,13 @@
                 "php": ">=5.3.2"
             },
             "require-dev": {
-                "doctrine/cache": "1.*"
+                "doctrine/cache": "1.*",
+                "phpunit/phpunit": "4.*"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.3.x-dev"
                 }
             },
             "autoload": {
@@ -83,7 +45,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan H. Wage",
+                    "name": "Jonathan Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/",
                     "role": "Creator"
@@ -115,7 +77,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2013-06-16 21:33:03"
+            "time": "2014-07-06 15:52:21"
         },
         {
             "name": "doctrine/cache",
@@ -225,7 +187,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jonathan H. Wage",
+                    "name": "Jonathan Wage",
                     "email": "jonwage@gmail.com",
                     "homepage": "http://www.jwage.com/",
                     "role": "Creator"
@@ -322,7 +284,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -525,7 +487,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -579,7 +541,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "http://jmsyst.com",
+                    "homepage": "https://github.com/schmittjoh",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -593,16 +555,16 @@
         },
         {
             "name": "doctrine/orm",
-            "version": "v2.4.3",
+            "version": "v2.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "8a13376d42b5ea467727ffe730aa0e14ca3c5e29"
+                "reference": "fc19c3b53dcd00e6584db40669fdd699c4671f97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/8a13376d42b5ea467727ffe730aa0e14ca3c5e29",
-                "reference": "8a13376d42b5ea467727ffe730aa0e14ca3c5e29",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/fc19c3b53dcd00e6584db40669fdd699c4671f97",
+                "reference": "fc19c3b53dcd00e6584db40669fdd699c4671f97",
                 "shasum": ""
             },
             "require": {
@@ -665,7 +627,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2014-06-10 11:49:08"
+            "time": "2014-07-11 03:05:53"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -841,6 +803,43 @@
             "time": "2013-07-19 00:03:27"
         },
         {
+            "name": "macintoshplus/lite-cqrs",
+            "version": "1.1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/macintoshplus/litecqrs-php.git",
+                "reference": "6f351fec50ca3674d20cd1ca087b4bcdd3aaaf98"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/macintoshplus/litecqrs-php/zipball/6f351fec50ca3674d20cd1ca087b4bcdd3aaaf98",
+                "reference": "6f351fec50ca3674d20cd1ca087b4bcdd3aaaf98",
+                "shasum": ""
+            },
+            "require-dev": {
+                "doctrine/common": ">=2.0,<2.5",
+                "doctrine/couchdb": "dev-master",
+                "doctrine/mongodb": "dev-master",
+                "doctrine/orm": ">=2.0,<2.5",
+                "jms/serializer-bundle": "0.9.0@stable",
+                "swiftmailer/swiftmailer": "4.*",
+                "symfony/console": ">=2.0,<2.2",
+                "symfony/framework-bundle": ">=2.0,<2.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "LiteCQRS": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Simple Command-Query-Responsibility-Segregation library.",
+            "time": "2014-08-30 19:03:36"
+        },
+        {
             "name": "monolog/monolog",
             "version": "1.10.0",
             "source": {
@@ -945,72 +944,6 @@
                 "psr-3"
             ],
             "time": "2012-12-21 11:40:51"
-        },
-        {
-            "name": "rhumsaa/uuid",
-            "version": "2.7.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ramsey/uuid.git",
-                "reference": "8569983a11ed96087cdf94c7aa65866138681beb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/uuid/zipball/8569983a11ed96087cdf94c7aa65866138681beb",
-                "reference": "8569983a11ed96087cdf94c7aa65866138681beb",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "doctrine/dbal": ">=2.3",
-                "moontoast/math": "~1.1",
-                "phpunit/phpunit": "~3.7",
-                "symfony/console": "~2.3"
-            },
-            "suggest": {
-                "doctrine/dbal": "Allow the use of a UUID as doctrine field type.",
-                "moontoast/math": "Support for converting UUID to 128-bit integer (in string form).",
-                "symfony/console": "Support for use of the bin/uuid command line tool."
-            },
-            "bin": [
-                "bin/uuid"
-            ],
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.7.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Rhumsaa\\Uuid": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marijn Huizendveld",
-                    "email": "marijn.huizendveld@gmail.com"
-                },
-                {
-                    "name": "Ben Ramsey",
-                    "homepage": "http://benramsey.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A PHP 5.3+ library for generating RFC 4122 version 1, 3, 4, and 5 universally unique identifiers (UUID).",
-            "homepage": "https://github.com/ramsey/uuid",
-            "keywords": [
-                "guid",
-                "identifier",
-                "uuid"
-            ],
-            "time": "2014-02-22 00:08:43"
         },
         {
             "name": "sensio/distribution-bundle",
@@ -1278,21 +1211,20 @@
         },
         {
             "name": "symfony/icu",
-            "version": "v1.2.1",
+            "version": "v1.0.1",
             "target-dir": "Symfony/Component/Icu",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "98e197da54df1f966dd5e8a4992135703569c987"
+                "reference": "fdba214b1e087c149843bde976263c53ac10c975"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/98e197da54df1f966dd5e8a4992135703569c987",
-                "reference": "98e197da54df1f966dd5e8a4992135703569c987",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/fdba214b1e087c149843bde976263c53ac10c975",
+                "reference": "fdba214b1e087c149843bde976263c53ac10c975",
                 "shasum": ""
             },
             "require": {
-                "lib-icu": ">=4.4",
                 "php": ">=5.3.3",
                 "symfony/intl": "~2.3"
             },
@@ -1322,7 +1254,7 @@
                 "icu",
                 "intl"
             ],
-            "time": "2013-10-04 10:06:38"
+            "time": "2013-10-04 09:12:07"
         },
         {
             "name": "symfony/monolog-bundle",
@@ -1443,16 +1375,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.3.16",
+            "version": "v2.3.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "069683a14eb361f892c9bdc9d10d4f5dac3c0ee3"
+                "reference": "75e07e6bde6391a6f49c8546a43740c80ac1b06b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/069683a14eb361f892c9bdc9d10d4f5dac3c0ee3",
-                "reference": "069683a14eb361f892c9bdc9d10d4f5dac3c0ee3",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/75e07e6bde6391a6f49c8546a43740c80ac1b06b",
+                "reference": "75e07e6bde6391a6f49c8546a43740c80ac1b06b",
                 "shasum": ""
             },
             "require": {
@@ -1460,7 +1392,7 @@
                 "php": ">=5.3.3",
                 "psr/log": "~1.0",
                 "symfony/icu": "~1.0",
-                "twig/twig": "~1.11"
+                "twig/twig": "~1.12"
             },
             "replace": {
                 "symfony/browser-kit": "self.version",
@@ -1549,7 +1481,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-05-31 02:04:21"
+            "time": "2014-07-15 14:20:44"
         },
         {
             "name": "twig/extensions",
@@ -1602,16 +1534,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.15.1",
+            "version": "v1.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed"
+                "reference": "8ce37115802e257a984a82d38254884085060024"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/1fb5784662f438d7d96a541e305e28b812e2eeed",
-                "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/8ce37115802e257a984a82d38254884085060024",
+                "reference": "8ce37115802e257a984a82d38254884085060024",
                 "shasum": ""
             },
             "require": {
@@ -1620,7 +1552,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.15-dev"
+                    "dev-master": "1.16-dev"
                 }
             },
             "autoload": {
@@ -1655,7 +1587,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2014-02-13 10:19:29"
+            "time": "2014-07-05 12:19:05"
         }
     ],
     "packages-dev": [
@@ -1666,8 +1598,9 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "beberlei/lite-cqrs": 20
+        "macintoshplus/lite-cqrs": 20
     },
+    "prefer-stable": false,
     "platform": {
         "php": ">=5.3.3"
     },
