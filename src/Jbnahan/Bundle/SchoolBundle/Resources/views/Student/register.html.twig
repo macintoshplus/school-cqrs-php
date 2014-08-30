@@ -4,7 +4,10 @@
 
 {% block body %}
 <h1>Welcome to the Student:register page</h1>
-<form action="" method="POST" novalidate="novalidate">
+<!--<form action="" method="POST" novalidate="novalidate"> //-->
+{{ form_start(form) }}
+    <p>{{ form_errors(form) }}</p>
+{{ form_rest(form) }}
     <p>{{ form_row(form.firstName) }}</p>
     
     <p>{{ form_row(form.lastName) }}</p>
@@ -12,6 +15,6 @@
     <p>{{ form_row(form.bornOn) }}</p>
     
     <p>{{ form_row(form.save) }}</p>
-</form>
-
+<!--</form> //-->
+{{ form_end(form) }}
 {% endblock %}
