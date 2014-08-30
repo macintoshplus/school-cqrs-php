@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             
             new LiteCQRS\Plugin\SymfonyBundle\LiteCQRSBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle($this),
             
             new Jbnahan\Bundle\EventStoreBundle\JbnahanEventStoreBundle(),
             new Jbnahan\Bundle\SchoolBundle\JbnahanSchoolBundle(),
