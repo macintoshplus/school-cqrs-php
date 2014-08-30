@@ -20,7 +20,7 @@ class AppKernel extends Kernel
             new LiteCQRS\Plugin\SymfonyBundle\LiteCQRSBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle($this),
             
-            new Jbnahan\Bundle\EventStoreBundle\JbnahanEventStoreBundle(),
+            //new Jbnahan\Bundle\EventStoreBundle\JbnahanEventStoreBundle(),
             new Jbnahan\Bundle\SchoolBundle\JbnahanSchoolBundle(),
         );
 
