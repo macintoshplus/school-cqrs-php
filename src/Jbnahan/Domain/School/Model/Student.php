@@ -17,13 +17,15 @@ class Student extends AggregateRoot {
      * @var StudentIdentity
      */
     protected $identity;
+
+    private $id;
     
     /**
      * 
      * @param Uuid $id
      */
     public function __construct($id) {
-        $this->setId($id);
+        $this->id=$id;
     }
     
     /**
@@ -42,10 +44,10 @@ class Student extends AggregateRoot {
      * @param string $lastName
      * @param \DateTime $bornOn
      */
-    public function registration($id, $firstName, $lastName, \DateTime $bornOn) {
+    public function registration($firstName, $lastName, \DateTime $bornOn) {
         $identity = new StudentIdentity($firstName,$lastName,$bornOn);
         
-        $event = new StudentRegistred($id, $identity);
+        $event = new StudentRegistred(array("id"=>$this->id, "identity"=>$identity));
         
         $this->apply($event);
     }
