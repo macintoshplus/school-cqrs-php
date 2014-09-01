@@ -1,5 +1,6 @@
 parameters:
 #    jbnahan_event_store.example.class: Jbnahan\Bundle\EventStoreBundle\Example
+    jbnahan.bus.doctrine_identity_map.class: Jbnahan\ES\DoctrineIdentityMap
 
 services:
 #    jbnahan_event_store.example:
@@ -16,3 +17,7 @@ services:
     cqrs.event_source.repository:
         class: Jbnahan\ES\DoctrineRepository
         arguments: [@litecqrs.doctrine.event_store, @litecqrs.event_message_bus]
+		
+    jbnahan.identitymap.orm:
+        class: %jbnahan.bus.doctrine_identity_map.class%
+		
