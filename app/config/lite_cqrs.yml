@@ -1,7 +1,7 @@
 lite_cqrs:
     monolog: true
     swift_mailer: false
-    orm: true
+    orm: false
     jms_serializer: true
     dbal_event_store: true
     couchdb_event_store: false
