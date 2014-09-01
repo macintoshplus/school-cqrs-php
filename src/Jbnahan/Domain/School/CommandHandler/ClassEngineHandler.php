@@ -9,7 +9,8 @@
 namespace Jbnahan\Domain\School\CommandHandler;
 
 use Jbnahan\Domain\School\Command;
-use Jbnahan\Domain\Model;
+use Jbnahan\Domain\School\Model;
+use LiteCQRS\Bus\IdentityMap\SimpleIdentityMap;
 
 /**
  * Description of ClassCommandHandler
@@ -17,17 +18,28 @@ use Jbnahan\Domain\Model;
  * @author jb
  */
 class ClassEngineHandler {
-    protected  $repository;
+    protected  $map;
+    private $StudentsClass;
     
-    public function __construct($repository) {
-        $this->repository = $repository;
+    public function __construct(SimpleIdentityMap $map) {
+        $this->map = $map;
+        $this->StudentsClass = array();
     }
     
     public function openClass(Command\OpenClassCommand $command){
-        $class = new Model\StudentsClass($command->classId);
         
+        $class = $this->findStudentById($command->classId);
         $class->openClass($command->name, $command->grade);
         
-        $this->repository->save($class);
+    }
+
+    private function findStudentById($id){
+        
+        if(!array_key_exists($id, $this->StudentsClass)){
+            $this->StudentsClass[$id]=new Model\StudentsClass($id);
+            $this->map->add($this->StudentsClass[$id]);
+        }
+
+        return $this->StudentsClass[$id];
     }
 }

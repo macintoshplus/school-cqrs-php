@@ -10,7 +10,6 @@ namespace Jbnahan\Domain\School\CommandHandler;
 
 use Jbnahan\Domain\School\Command;
 use Jbnahan\Domain\School\Model;
-use Jbnahan\Bundle\SchoolBundle\Entity;
 use LiteCQRS\Bus\IdentityMap\SimpleIdentityMap;
 
 /**
@@ -39,7 +38,7 @@ class StudentEngineHandler {
     private function findStudentById($id){
         
         if(!array_key_exists($id, $this->students)){
-            $this->students[$id]=new Entity\StudentDomain($id);
+            $this->students[$id]=new Model\Student($id);
             $this->map->add($this->students[$id]);
         }
 
