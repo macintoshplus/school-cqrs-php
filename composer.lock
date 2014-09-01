@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "05ba7cd382a3f6193626941a7abda1da",
+    "hash": "1db747fe96053dd1e776512e51241626",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1035,12 +1035,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/macintoshplus/litecqrs-php.git",
-                "reference": "145e469e5e148a6d5e6a6f1a8ae7a623182fecc6"
+                "reference": "663098eef5a4f9eacedd3dfa754a112b98c6dc19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/macintoshplus/litecqrs-php/zipball/145e469e5e148a6d5e6a6f1a8ae7a623182fecc6",
-                "reference": "145e469e5e148a6d5e6a6f1a8ae7a623182fecc6",
+                "url": "https://api.github.com/repos/macintoshplus/litecqrs-php/zipball/663098eef5a4f9eacedd3dfa754a112b98c6dc19",
+                "reference": "663098eef5a4f9eacedd3dfa754a112b98c6dc19",
                 "shasum": ""
             },
             "require": {
@@ -1068,7 +1068,7 @@
                 "MIT"
             ],
             "description": "Simple Command-Query-Responsibility-Segregation library.",
-            "time": "2014-08-30 21:50:53"
+            "time": "2014-09-01 11:49:43"
         },
         {
             "name": "monolog/monolog",
@@ -2022,12 +2022,8 @@
             "time": "2014-07-05 12:19:05"
         }
     ],
-    "packages-dev": [
-
-    ],
-    "aliases": [
-
-    ],
+    "packages-dev": [],
+    "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
         "macintoshplus/lite-cqrs": 20,
@@ -2037,7 +2033,5 @@
     "platform": {
         "php": ">=5.3.3"
     },
-    "platform-dev": [
-
-    ]
+    "platform-dev": []
 }
