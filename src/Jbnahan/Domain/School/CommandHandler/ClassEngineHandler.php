@@ -10,7 +10,7 @@ namespace Jbnahan\Domain\School\CommandHandler;
 
 use Jbnahan\Domain\School\Command;
 use Jbnahan\Domain\School\Model;
-use LiteCQRS\Bus\IdentityMap\SimpleIdentityMap;
+use LiteCQRS\Bus\IdentityMap\IdentityMapInterface;
 
 /**
  * Description of ClassCommandHandler
@@ -21,7 +21,7 @@ class ClassEngineHandler {
     protected  $map;
     private $StudentsClass;
     
-    public function __construct(SimpleIdentityMap $map) {
+    public function __construct(IdentityMapInterface $map) {
         $this->map = $map;
         $this->StudentsClass = array();
     }
