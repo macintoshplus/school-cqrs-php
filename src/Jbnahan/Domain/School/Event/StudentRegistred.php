@@ -20,6 +20,8 @@ class StudentRegistred extends DefaultDomainEvent {
     public $identity;
     
     public $id;
+
+    public $class;
     
     /*public function __construct($id, StudentIdentity $identity) {
         $this->id = $id;

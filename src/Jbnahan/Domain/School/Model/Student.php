@@ -44,10 +44,10 @@ class Student extends AggregateRoot {
      * @param string $lastName
      * @param \DateTime $bornOn
      */
-    public function registration($firstName, $lastName, \DateTime $bornOn) {
-        $identity = new StudentIdentity($firstName,$lastName,$bornOn);
+    public function registration($data) {
+        $identity = new StudentIdentity($data['firstName'],$data['lastName'],$data['bornOn']);
         
-        $event = new StudentRegistred(array("id"=>$this->id, "identity"=>$identity));
+        $event = new StudentRegistred(array("class"=>get_class($this),"id"=>$this->id, "identity"=>$identity));
         
         $this->apply($event);
     }
