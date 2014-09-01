@@ -25,6 +25,7 @@ class JbnahanEventStoreExtension extends Extension
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
 		
-		$container->setAlias('litecqrs.identity_map', 'jbnahan.identitymap.orm');
+        $container->setAlias('litecqrs.identity_map', 'jbnahan.identitymap.orm');
+        $container->setAlias('litecqrs.repository', 'jbnahan.repository.orm');
     }
 }
