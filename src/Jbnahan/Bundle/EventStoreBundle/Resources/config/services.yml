@@ -14,5 +14,5 @@ services:
         arguments: [@doctrine]
 
     cqrs.event_source.repository:
-        class: LiteCQRS\EventStore\EventSourceRepository
-        arguments: [@cqrs.event_store, @litecqrs.event_message_bus]
+        class: Jbnahan\ES\DoctrineRepository
+        arguments: [@litecqrs.doctrine.event_store, @litecqrs.event_message_bus]
