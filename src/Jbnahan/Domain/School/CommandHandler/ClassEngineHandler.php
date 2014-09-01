@@ -26,6 +26,11 @@ class ClassEngineHandler {
         $this->StudentsClass = array();
     }
     
+    /**
+     * execute openClass Command
+     * @param OpenClassCommand $command
+     * @return void
+     */
     public function openClass(Command\OpenClassCommand $command){
         if(null===$command->classId){
             throw new Exception("Error : classId is empty", 1);
@@ -36,6 +41,11 @@ class ClassEngineHandler {
         
     }
 
+    /**
+     * search agregate by ID. Create if not in memory.
+     * @param string $id
+     * @return object
+     */
     private function findClassById($id){
         
         if(!array_key_exists($id, $this->StudentsClass)){

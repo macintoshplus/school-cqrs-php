@@ -26,6 +26,11 @@ class StudentEngineHandler {
         $this->students = array();
     }
     
+    /**
+     * Execute command RegisterStudent
+     * @param RegisterStudentCommand $command
+     * @return void
+     */
     public function RegisterStudent(Command\RegisterStudentCommand $command){
         //$student = new Model\Student($command->studentId);
         $student = $this->findStudentById($command->studentId);
@@ -35,6 +40,12 @@ class StudentEngineHandler {
         //$this->map->add($student);
     }
 
+
+    /**
+     * search agregate by ID. Create if not in memory.
+     * @param string $id
+     * @return object
+     */
     private function findStudentById($id){
         
         if(!array_key_exists($id, $this->students)){
