@@ -4,3 +4,8 @@ services:
         arguments: [@doctrine]
         tags:
             - { name: lite_cqrs.event_handler }
+    jbnahan_school.class_view.listener:
+        class: Jbnahan\Domain\School\Listener\ClassViewListener
+        arguments: [@doctrine]
+        tags:
+            - { name: lite_cqrs.event_handler }

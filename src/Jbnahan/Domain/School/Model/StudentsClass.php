@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace Jbnahan\Domain\Model;
+namespace Jbnahan\Domain\School\Model;
 
 use LiteCQRS\AggregateRoot;
 use Jbnahan\Domain\School\Event\ClassOpened;
@@ -35,7 +35,7 @@ class StudentsClass extends AggregateRoot {
     public function openClass($name, $grade) {
         $identity = new ClassIdentity($name, $grade);
         
-        $this->apply(new ClassOpened($this->getId(), $identity));
+        $this->apply(new ClassOpened(array('id' =>$this->id,'identity'=>$identity)));
     }
     
     

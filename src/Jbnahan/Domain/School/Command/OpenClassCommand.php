@@ -18,10 +18,10 @@ class OpenClassCommand implements Command {
     
     public $grade;
 
-    public function __construct($classId, $name, $grade) {
+    /*public function __construct($classId, $name, $grade) {
         $this->name = $name;
         $this->grade = $grade;
         $this->classId = $classId;
-    }
+    }*/
     
 }

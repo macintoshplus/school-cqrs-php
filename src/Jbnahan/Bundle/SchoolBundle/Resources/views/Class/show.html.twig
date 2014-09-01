@@ -1,0 +1,20 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}JbnahanSchoolBundle:Class:show{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Class:show page</h1>
+
+<table>
+<tbody>
+<tr>
+<td> Name : </td>
+<td>{{ class.name }}</td>
+</tr>
+<tr>
+<td>Last name : </td>
+<td>{{ class.grade }}</td>
+</tr>
+</tbody>
+</table>
+{% endblock %}

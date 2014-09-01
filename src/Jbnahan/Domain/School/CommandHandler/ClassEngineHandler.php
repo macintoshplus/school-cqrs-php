@@ -27,13 +27,16 @@ class ClassEngineHandler {
     }
     
     public function openClass(Command\OpenClassCommand $command){
-        
-        $class = $this->findStudentById($command->classId);
+        if(null===$command->classId){
+            throw new Exception("Error : classId is empty", 1);
+            
+        }
+        $class = $this->findClassById($command->classId);
         $class->openClass($command->name, $command->grade);
         
     }
 
-    private function findStudentById($id){
+    private function findClassById($id){
         
         if(!array_key_exists($id, $this->StudentsClass)){
             $this->StudentsClass[$id]=new Model\StudentsClass($id);

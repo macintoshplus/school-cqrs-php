@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace Jbnahan\Domain\Model;
+namespace Jbnahan\Domain\School\Model;
 
 /**
  * Description of ClassIdentity
@@ -14,9 +14,9 @@ namespace Jbnahan\Domain\Model;
  * @author jb
  */
 class ClassIdentity {
-    protected $name;
+    public $name;
     
-    protected $grade;
+    public $grade;
     
     public function __construct($name, $grade) {
         $this->name = $name;

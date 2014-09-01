@@ -1,0 +1,18 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}JbnahanSchoolBundle:Class:open{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Class:open page</h1>
+<!--<form action="" method="POST" novalidate="novalidate"> //-->
+{{ form_start(form) }}
+    <p>{{ form_errors(form) }}</p>
+{{ form_rest(form) }}
+    <p>{{ form_row(form.name) }}</p>
+    
+    <p>{{ form_row(form.grade) }}</p>
+    
+    <p>{{ form_row(form.save) }}</p>
+<!--</form> //-->
+{{ form_end(form) }}
+{% endblock %}

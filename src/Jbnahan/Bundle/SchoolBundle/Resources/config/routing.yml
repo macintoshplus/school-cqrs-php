@@ -5,3 +5,11 @@ jbnahan_school_student_register:
 jbnahan_school_student_show:
     path:     /student/show/{id}
     defaults: { _controller: JbnahanSchoolBundle:Student:show }
+
+jbnahan_school_class_register:
+    path:     /class/open
+    defaults: { _controller: JbnahanSchoolBundle:Class:open }
+
+jbnahan_school_class_show:
+    path:     /class/show/{id}
+    defaults: { _controller: JbnahanSchoolBundle:Class:show }
