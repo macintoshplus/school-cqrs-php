@@ -10,6 +10,8 @@ namespace Jbnahan\Domain\School\CommandHandler;
 
 use Jbnahan\Domain\School\Command;
 use Jbnahan\Domain\School\Model;
+use Jbnahan\Bundle\SchoolBundle\Entity;
+use LiteCQRS\Bus\IdentityMap\SimpleIdentityMap;
 
 /**
  * Description of ClassCommandHandler
@@ -17,17 +19,30 @@ use Jbnahan\Domain\School\Model;
  * @author jb
  */
 class StudentEngineHandler {
-    protected  $repository;
+    protected  $map;
+    private $students;
     
-    public function __construct($repository) {
-        $this->repository = $repository;
+    public function __construct(SimpleIdentityMap $map) {
+        $this->map = $map;
+        $this->students = array();
     }
     
     public function RegisterStudent(Command\RegisterStudentCommand $command){
-        $student = new Model\Student($command->studentId);
+        //$student = new Model\Student($command->studentId);
+        $student = $this->findStudentById($command->studentId);
         
-        $student->registration($command->firstName, $command->lastName, $command->bornOn);
+        $student->registration(array("firstName"=>$command->firstName, "lastName"=>$command->lastName, "bornOn"=>$command->bornOn));
         
-        //$this->repository->save($student);
+        //$this->map->add($student);
+    }
+
+    private function findStudentById($id){
+        
+        if(!array_key_exists($id, $this->students)){
+            $this->students[$id]=new Entity\StudentDomain($id);
+            $this->map->add($this->students[$id]);
+        }
+
+        return $this->students[$id];
     }
 }
