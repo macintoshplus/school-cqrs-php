@@ -20,7 +20,7 @@
         "sensio/generator-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0",
         "macintoshplus/lite-cqrs": "1.1.x-dev",
-        "jms/serializer-bundle": "0.9.*",
+        "jms/serializer-bundle": "@stable",
         "moontoast/math": "1.1.*"
     },
     "scripts": {
