@@ -21,8 +21,6 @@ class ClassOpened extends DefaultDomainEvent {
     public $id;
 
     public $identity;
-
-    public $class;
     
     /*public function __construct($id, ClassIdentity $identity) {
         $this->id = $id;
