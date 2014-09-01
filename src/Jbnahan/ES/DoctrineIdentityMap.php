@@ -3,6 +3,7 @@
 namespace Jbnahan\ES;
 
 use LiteCQRS\EventProviderInterface;
+use LiteCQRS\Bus\IdentityMap\IdentityMapInterface;
 
 class DoctrineIdentityMap implements IdentityMapInterface
 {
