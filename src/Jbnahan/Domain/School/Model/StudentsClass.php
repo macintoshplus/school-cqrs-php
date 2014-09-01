@@ -21,13 +21,15 @@ class StudentsClass extends AggregateRoot {
     protected $students;
     
     protected $identity;
+	
+	protected $id;
 
     public function __construct($id) {
-        $this->setId($id);
+        $this->id = $id;
     }
     
-    public function setId($id) {
-        $this->id = $id;
+    public function getId() {
+        return $this->id;
     }
     
     public function openClass($name, $grade) {

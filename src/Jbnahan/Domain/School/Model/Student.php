@@ -18,7 +18,7 @@ class Student extends AggregateRoot {
      */
     protected $identity;
 
-    private $id;
+    protected $id;
     
     /**
      * 
@@ -28,6 +28,10 @@ class Student extends AggregateRoot {
         $this->id=$id;
     }
     
+	public function getId(){
+		return $this->id;
+	}
+	
     /**
      * Compute the student Age
      * @return integer
