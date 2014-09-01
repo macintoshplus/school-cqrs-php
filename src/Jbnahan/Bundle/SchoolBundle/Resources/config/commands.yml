@@ -4,12 +4,13 @@ parameters:
 services:
     jbnahan_school.student.command_handler:
         class: Jbnahan\Domain\School\CommandHandler\StudentEngineHandler
-        arguments: ['@litecqrs.identity_map']
+        arguments: ['@litecqrs.repository']
         tags:
             - { name: 'lite_cqrs.command_handler' }
 
     jbnahan_school.class.command_handler:
         class: Jbnahan\Domain\School\CommandHandler\ClassEngineHandler
-        arguments: ['@litecqrs.identity_map']
+        arguments: ['@litecqrs.repository']
+        #litecqrs.identity_map
         tags:
             - { name: 'lite_cqrs.command_handler' }
