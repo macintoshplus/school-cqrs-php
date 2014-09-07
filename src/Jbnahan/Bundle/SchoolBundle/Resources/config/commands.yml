@@ -4,7 +4,7 @@ parameters:
 services:
     jbnahan_school.student.repository:
         class: Broadway\EventSourcing\EventSourcingRepository
-        arguments: [@broadway.event_store, @broadway.event_handling.event_bus, Jb\Domain\Model\Student]
+        arguments: [@broadway.event_store, @broadway.event_handling.event_bus, Jbnahan\Domain\School\Model\Student]
 
     jbnahan_school.student.command_handler:
         class: Jbnahan\Domain\School\CommandHandler\StudentEngineHandler
@@ -15,7 +15,7 @@ services:
 
     jbnahan_school.student_class.repository:
         class: Broadway\EventSourcing\EventSourcingRepository
-        arguments: [@broadway.event_store, @broadway.event_handling.event_bus, Jb\Domain\Model\StudentsClass]
+        arguments: [@broadway.event_store, @broadway.event_handling.event_bus, Jbnahan\Domain\School\Model\StudentsClass]
 
     jbnahan_school.class.command_handler:
         class: Jbnahan\Domain\School\CommandHandler\ClassEngineHandler

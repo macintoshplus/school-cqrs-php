@@ -32,7 +32,7 @@ class StudentController extends Controller
         if($form->isValid()){
             $command->studentId = Uuid::uuid1()->toString();
             
-            $this->get('command_bus')->handle($command);
+            $this->get('broadway.command_handling.command_bus')->dispatch($command);
             return $this->redirect($this->generateUrl('jbnahan_school_student_show',array('id'=>$command->studentId)));
         }
         

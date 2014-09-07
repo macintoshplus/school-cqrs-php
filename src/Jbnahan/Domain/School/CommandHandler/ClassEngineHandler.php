@@ -11,6 +11,7 @@ namespace Jbnahan\Domain\School\CommandHandler;
 use Jbnahan\Domain\School\Command;
 use Jbnahan\Domain\School\Model;
 use Broadway\CommandHandling\CommandHandler;
+use Broadway\EventSourcing\EventSourcingRepository;
 
 /**
  * Description of ClassCommandHandler

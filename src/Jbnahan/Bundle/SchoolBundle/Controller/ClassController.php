@@ -30,7 +30,7 @@ class ClassController extends Controller
         if($form->isValid()){
             $command->classId = Uuid::uuid1()->toString();
             
-            $this->get('command_bus')->handle($command);
+            $this->get('broadway.command_handling.command_bus')->dispatch($command);
             return $this->redirect($this->generateUrl('jbnahan_school_class_show',array('id'=>$command->classId)));
         }
         
@@ -66,7 +66,7 @@ class ClassController extends Controller
         
         if($form->isValid()){
             
-            $this->get('command_bus')->handle($command);
+            $this->get('broadway.command_handling.command_bus')->dispatch($command);
             return $this->redirect($this->generateUrl('jbnahan_school_class_show',array('id'=>$command->classId)));
         }
         
