@@ -1,7 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
-    - { resource: lite_cqrs.yml }
+    - { resource: broadway.yml }
 
 framework:
     #esi:             ~
@@ -43,20 +43,42 @@ assetic:
 # Doctrine Configuration
 doctrine:
     dbal:
-        driver:   "%database_driver%"
-        host:     "%database_host%"
-        port:     "%database_port%"
-        dbname:   "%database_name%"
-        user:     "%database_user%"
-        password: "%database_password%"
-        charset:  UTF8
+        default_connection: default
+        connections:
+            default:
+                driver:   "%database_driver%"
+                host:     "%database_host%"
+                port:     "%database_port%"
+                dbname:   "%database_name%"
+                user:     "%database_user%"
+                password: "%database_password%"
+                charset:  UTF8
+            readmodel:
+                driver:   "%database_read_driver%"
+                host:     "%database_read_host%"
+                port:     "%database_read_port%"
+                dbname:   "%database_read_name%"
+                user:     "%database_read_user%"
+                password: "%database_read_password%"
+                charset:  UTF8
         # if using pdo_sqlite as your database driver, add the path in parameters.yml
         # e.g. database_path: "%kernel.root_dir%/data/data.db3"
         # path:     "%database_path%"
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
-        auto_mapping: true
+        #auto_mapping: true
+        default_entity_manager: default
+        entity_managers:
+            default:
+                connection: default
+                mappings:
+                    JbnahanSchoolBundle: ~
+            readmodel:
+                connection: readmodel
+                mappings:
+                    JbnahanSchoolBundle: ~
+
 
 # Swiftmailer Configuration
 swiftmailer:

@@ -1,9 +1,0 @@
-lite_cqrs:
-    monolog: true
-    swift_mailer: false
-    orm: false
-    jms_serializer: true
-    dbal_event_store: true
-    couchdb_event_store: false
-    couchdb_odm: false
-    crud: false

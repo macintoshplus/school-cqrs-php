@@ -6,6 +6,13 @@ parameters:
     database_user:     root
     database_password: ~
 
+    database_read_driver:   pdo_mysql
+    database_read_host:     127.0.0.1
+    database_read_port:     ~
+    database_read_name:     symfony_read
+    database_read_user:     root
+    database_read_password: ~
+
     mailer_transport:  smtp
     mailer_host:       127.0.0.1
     mailer_user:       ~
@@ -13,3 +20,7 @@ parameters:
 
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+#only for fix broadway error
+    storage_suffix: test
+    elasticsearch: none

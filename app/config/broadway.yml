@@ -1,0 +1,12 @@
+broadway:
+    command_handling:
+        logger:               false
+    saga:
+        repository:           in_memory # One of "in_memory"; "mongodb"
+    read_model:
+        repository:           in_memory # One of "in_memory"; "elasticsearch"
+        elasticsearch:
+            hosts:
+
+                # Default:
+                - localhost:9200
