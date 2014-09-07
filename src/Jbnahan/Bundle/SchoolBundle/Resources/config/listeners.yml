@@ -4,6 +4,7 @@ services:
         arguments: [@doctrine.orm.readmodel_entity_manager]
         tags:
             - { name: broadway.domain.event_listener }
+
     jbnahan_school.class_view.listener:
         class: Jbnahan\Domain\School\Listener\ClassViewListener
         arguments: [@doctrine.orm.readmodel_entity_manager]

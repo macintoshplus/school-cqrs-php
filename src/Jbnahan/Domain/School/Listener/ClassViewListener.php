@@ -20,7 +20,7 @@ use Doctrine\ORM\EntityManager;
  *
  * @author jb
  */
-class ClassViewListener {
+class ClassViewListener implements EventListenerInterface {
     
     private $em;
 
