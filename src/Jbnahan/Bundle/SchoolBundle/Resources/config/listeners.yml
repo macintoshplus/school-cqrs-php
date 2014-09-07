@@ -1,11 +1,11 @@
 services:
     jbnahan_school.student_view.listener:
         class: Jbnahan\Domain\School\Listener\StudentViewListener
-        arguments: [@doctrine]
+        arguments: [@doctrine.orm.readmodel_entity_manager]
         tags:
-            - { name: lite_cqrs.event_handler }
+            - { name: broadway.domain.event_listener }
     jbnahan_school.class_view.listener:
         class: Jbnahan\Domain\School\Listener\ClassViewListener
-        arguments: [@doctrine]
+        arguments: [@doctrine.orm.readmodel_entity_manager]
         tags:
-            - { name: lite_cqrs.event_handler }
+            - { name: broadway.domain.event_listener }

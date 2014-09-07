@@ -2,15 +2,23 @@ parameters:
 #    afsy_blackjack.example.class: Afsy\Bundle\BlackjackBundle\Example
 
 services:
+    jbnahan_school.student.repository:
+        class: Broadway\EventSourcing\EventSourcingRepository
+        arguments: [@broadway.event_store, @broadway.event_handling.event_bus, Jb\Domain\Model\Student]
+
     jbnahan_school.student.command_handler:
         class: Jbnahan\Domain\School\CommandHandler\StudentEngineHandler
-        arguments: ['@litecqrs.repository']
+        arguments: ['@jbnahan_school.student.repository']
         tags:
-            - { name: 'lite_cqrs.command_handler' }
+            - { name: 'command_handler' }
+
+
+    jbnahan_school.student_class.repository:
+        class: Broadway\EventSourcing\EventSourcingRepository
+        arguments: [@broadway.event_store, @broadway.event_handling.event_bus, Jb\Domain\Model\StudentsClass]
 
     jbnahan_school.class.command_handler:
         class: Jbnahan\Domain\School\CommandHandler\ClassEngineHandler
-        arguments: ['@litecqrs.repository']
-        #litecqrs.identity_map
+        arguments: ['@jbnahan_school.student_class.repository']
         tags:
-            - { name: 'lite_cqrs.command_handler' }
+            - { name: 'command_handler' }
