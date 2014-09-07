@@ -19,9 +19,7 @@
         "sensio/framework-extra-bundle": "2.3.*",
         "sensio/generator-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0",
-        "macintoshplus/lite-cqrs": "1.1.x-dev",
-        "jms/serializer-bundle": "@stable",
-        "moontoast/math": "1.1.*"
+        "broadway/broadway": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
