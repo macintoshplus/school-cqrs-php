@@ -13,3 +13,7 @@ jbnahan_school_class_register:
 jbnahan_school_class_show:
     path:     /class/show/{id}
     defaults: { _controller: JbnahanSchoolBundle:Class:show }
+
+jbnahan_school_class_rename:
+    path:     /class/rename/{id}
+    defaults: { _controller: JbnahanSchoolBundle:Class:rename }

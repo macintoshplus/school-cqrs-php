@@ -9,21 +9,22 @@
 namespace Jbnahan\Domain\School\CommandHandler;
 
 use Jbnahan\Domain\School\Command;
-use Jbnahan\Domain\School\Model;
-use LiteCQRS\Bus\IdentityMap\IdentityMapInterface;
+use Jbnahan\Domain\School\Model\Student;
+use Broadway\CommandHandling\CommandHandler;
 
 /**
  * Description of ClassCommandHandler
  *
  * @author jb
  */
-class StudentEngineHandler {
-    protected  $map;
-    private $students;
+class StudentEngineHandler extends CommandHandler {
     
-    public function __construct(IdentityMapInterface $map) {
-        $this->map = $map;
-        $this->students = array();
+    
+    private $repository;
+
+    public function __construct(EventSourcingRepository $repository){
+        $this->repository = $repository;
+
     }
     
     /**
@@ -32,27 +33,9 @@ class StudentEngineHandler {
      * @return void
      */
     public function RegisterStudent(Command\RegisterStudentCommand $command){
-        //$student = new Model\Student($command->studentId);
-        $student = $this->findStudentById($command->studentId);
         
-        $student->registration(array("firstName"=>$command->firstName, "lastName"=>$command->lastName, "bornOn"=>$command->bornOn));
+        $student = Student::registration($command);
         
-        //$this->map->add($student);
-    }
-
-
-    /**
-     * search agregate by ID. Create if not in memory.
-     * @param string $id
-     * @return object
-     */
-    private function findStudentById($id){
-        
-        if(!array_key_exists($id, $this->students)){
-            $this->students[$id]=new Model\Student($id);
-            $this->map->add($this->students[$id]);
-        }
-
-        return $this->students[$id];
+        $this->repository->add($student);
     }
 }

@@ -8,7 +8,7 @@
 
 namespace Jbnahan\Domain\School\Event;
 
-use LiteCQRS\DefaultDomainEvent;
+use Broadway\Serializer\SerializableInterface;
 use Jbnahan\Domain\School\Model\StudentIdentity;
 
 /**
@@ -16,13 +16,22 @@ use Jbnahan\Domain\School\Model\StudentIdentity;
  *
  * @author jb
  */
-class StudentRegistred extends DefaultDomainEvent {
+class StudentRegistred extends SerializableInterface {
     public $identity;
     
     public $id;
     
-    /*public function __construct($id, StudentIdentity $identity) {
-        $this->id = $id;
-        $this->identity = $identity;
-    }*/
+    public static function deserialize(array $data){
+    	$e = new StudentRegistred();
+    	$e->id = $data['id'];
+    	$e->identity = new StudentIdentity($data['firstName'], $data['lastName'], $data['bornOn']);
+		return $e; 
+	}
+
+    /**
+     * @return array
+     */
+    public function serialize(){
+    	return array("firstName"=>$this->identity->firstName,"lastName"=>$this->identity->lastName,"bornOn"=>$this->identity->bornOn, "id"=>$this->id);
+    }
 }

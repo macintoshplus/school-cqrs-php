@@ -10,20 +10,21 @@ namespace Jbnahan\Domain\School\CommandHandler;
 
 use Jbnahan\Domain\School\Command;
 use Jbnahan\Domain\School\Model;
-use LiteCQRS\Bus\IdentityMap\IdentityMapInterface;
+use Broadway\CommandHandling\CommandHandler;
 
 /**
  * Description of ClassCommandHandler
  *
  * @author jb
  */
-class ClassEngineHandler {
-    protected  $map;
-    private $StudentsClass;
+class ClassEngineHandler extends CommandHandler {
     
-    public function __construct(IdentityMapInterface $map) {
-        $this->map = $map;
-        $this->StudentsClass = array();
+    
+    private $repository;
+
+    public function __construct(EventSourcingRepository $repository){
+        $this->repository = $repository;
+
     }
     
     /**
@@ -36,23 +37,24 @@ class ClassEngineHandler {
             throw new Exception("Error : classId is empty", 1);
             
         }
-        $class = $this->findClassById($command->classId);
-        $class->openClass($command->name, $command->grade);
+        $class = StudentClass::openClass($command);
+        $this->repository->add($class);
         
     }
-
     /**
-     * search agregate by ID. Create if not in memory.
-     * @param string $id
-     * @return object
+     * execute renameClass Command
+     * @param OpenClassCommand $command
+     * @return void
      */
-    private function findClassById($id){
-        
-        if(!array_key_exists($id, $this->StudentsClass)){
-            $this->StudentsClass[$id]=new Model\StudentsClass($id);
-            $this->map->add($this->StudentsClass[$id]);
+    public function renameClass(Command\RenameClassCommand $command){
+        if(null===$command->classId){
+            throw new Exception("Error : classId is empty", 1);
+            
         }
-
-        return $this->StudentsClass[$id];
+        $class = $this->repository->load($command->classId);
+        
+        $class->renameClass($command->name);
+        
+        $this->repository->add($class);
     }
 }

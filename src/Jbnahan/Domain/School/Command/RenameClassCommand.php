@@ -5,17 +5,14 @@ namespace Jbnahan\Domain\School\Command;
 
 
 /**
- * Description of OpenClassCommand
+ * Description of RenameClassCommand
  *
  * @author jb
  */
-class OpenClassCommand {
+class RenameClassCommand {
     
     public $classId;
 
     public $name;
-    
-    public $grade;
-
     
 }

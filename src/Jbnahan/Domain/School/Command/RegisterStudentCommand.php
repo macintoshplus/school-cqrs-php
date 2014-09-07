@@ -8,15 +8,13 @@
 
 namespace Jbnahan\Domain\School\Command;
 
-use LiteCQRS\DefaultCommand;
-
 
 /**
- * Description of RegisterStudent
+ * Description of RegisterStudentCommand
  *
  * @author jb
  */
-class RegisterStudentCommand extends DefaultCommand {
+class RegisterStudentCommand {
     
     public $studentId;
 

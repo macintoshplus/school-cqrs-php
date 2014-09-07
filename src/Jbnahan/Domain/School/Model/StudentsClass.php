@@ -8,15 +8,16 @@
 
 namespace Jbnahan\Domain\School\Model;
 
-use LiteCQRS\AggregateRoot;
+use Broadway\EventSourcing\EventSourcedAggregateRoot;
 use Jbnahan\Domain\School\Event\ClassOpened;
+use Jbnahan\Domain\School\Command\OpenClassCommand;
 
 /**
  * Description of Class
  *
  * @author jb
  */
-class StudentsClass extends AggregateRoot {
+class StudentsClass extends EventSourcedAggregateRoot {
     
     protected $students;
     
@@ -24,7 +25,7 @@ class StudentsClass extends AggregateRoot {
 	
 	protected $id;
 
-    public function __construct($id) {
+    public function __construct() {
         $this->id = $id;
     }
     
@@ -32,15 +33,28 @@ class StudentsClass extends AggregateRoot {
         return $this->id;
     }
     
-    public function openClass($name, $grade) {
-        $identity = new ClassIdentity($name, $grade);
+    public static function openClass(OpenClassCommand $command) {
+        $identity = new ClassIdentity($command->name, $command->grade);
+        $sc = new StudentsClass();
+
+        $sc->apply(new ClassOpened(array('id' =>$command->id,'identity'=>$identity)));
+        return $sc;
+    }
+
+
+    public function renameClass($name) {
         
-        $this->apply(new ClassOpened(array('id' =>$this->id,'identity'=>$identity)));
+        $this->apply(new RenamedOpened(array('id' =>$this->id,'name'=>$name)));
     }
     
     
     
     protected function applyClassOpened($event) {
         $this->identity = $event->identity;
+        $this->id = $event->id;
+    }
+    
+    protected function applyClassRenamed($event) {
+        $this->identity->name = $event->name;
     }
 }

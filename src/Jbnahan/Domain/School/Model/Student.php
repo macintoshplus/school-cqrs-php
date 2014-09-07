@@ -2,15 +2,17 @@
 
 namespace Jbnahan\Domain\School\Model;
 
-use LiteCQRS\AggregateRoot;
 use Jbnahan\Domain\School\Event\StudentRegistred;
+use Jbnahan\Domain\School\Command\RegisterStudentCommand;
+
+use Broadway\EventSourcing\EventSourcedAggregateRoot;
 
 /**
  * Description of Student
  *
  * @author jb
  */
-class Student extends AggregateRoot {
+class Student extends EventSourcedAggregateRoot {
     
     /**
      *
@@ -24,13 +26,14 @@ class Student extends AggregateRoot {
      * 
      * @param Uuid $id
      */
-    public function __construct($id) {
-        $this->id=$id;
+    public function __construct() {
+
     }
     
-	public function getId(){
-		return $this->id;
-	}
+    public function getId(){
+        return $this->id;
+    }
+
 	
     /**
      * Compute the student Age
@@ -40,21 +43,20 @@ class Student extends AggregateRoot {
         $now = date('Y');
         return $now - $this->identity->bornOn->format('Y');
     }
-    
-    /**
-     * Apply registration
-     * @param Uuis $id
-     * @param string $firstName
-     * @param string $lastName
-     * @param \DateTime $bornOn
-     */
-    public function registration($data) {
-        $identity = new StudentIdentity($data['firstName'],$data['lastName'],$data['bornOn']);
+
+
+    public static function registration(RegisterStudentCommand $command){
+        $student = new Student();
+
+        $identity = new StudentIdentity($command->firstName, $command->lastName, $command->bornOn);
+
+        $event = new StudentRegistred(array("id"=>$command->studentId, "identity"=>$identity));
         
-        $event = new StudentRegistred(array("id"=>$this->id, "identity"=>$identity));
-        
-        $this->apply($event);
+        $student->apply($event);
+
+        return $student;
     }
+    
     
     /**
      * Apply StudentRegistred Event
@@ -62,5 +64,6 @@ class Student extends AggregateRoot {
      */
     protected function applyStudentRegistred($event) {
         $this->identity = $event->identity;
+        $this->id = $event->id;
     }
 }

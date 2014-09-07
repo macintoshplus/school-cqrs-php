@@ -3,14 +3,13 @@
 
 namespace Jbnahan\Domain\School\Command;
 
-use LiteCQRS\Command;
 
 /**
  * Description of SubsribeStudentInClassCommand
  *
  * @author jb
  */
-class SubsribeStudentInClassCommand implements Command {
+class SubsribeStudentInClassCommand {
     
     public $classId;
 
