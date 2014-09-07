@@ -11,6 +11,10 @@ namespace Jbnahan\Domain\School\Listener;
 use Jbnahan\Domain\School\Event\ClassOpened;
 use Jbnahan\Bundle\SchoolBundle\Entity\StudentsClass;
 
+use Broadway\EventHandling\EventListenerInterface;
+use Broadway\Domain\DomainMessageInterface;
+use Doctrine\ORM\EntityManager;
+
 /**
  * Description of StudentViewListener
  *
@@ -18,22 +22,50 @@ use Jbnahan\Bundle\SchoolBundle\Entity\StudentsClass;
  */
 class ClassViewListener {
     
-    private $doctrine;
+    private $em;
 
 
-    public function __construct($doctrine) {
-        $this->doctrine = $doctrine;
+    public function __construct(EntityManager $em) {
+        $this->em = $em;
+    }
+
+
+    public function handle(DomainMessageInterface $domainMessage)
+    {
+        
+        //print_r($domainMessage);
+        $evt = $domainMessage->getPayload();
+        $class = explode("\\",get_class($evt));
+        $method = 'on' . end($class);
+        if (! method_exists($this, $method)) {
+
+            return;
+        }
+
+        $this->$method($evt, $domainMessage->getPlayhead());
     }
     
-    public function onClassOpened(ClassOpened $event) {
+    public function onClassOpened(ClassOpened $event, $version) {
         $student = new StudentsClass();
         
         $student->setId($event->id);
         $student->setName($event->identity->name);
         $student->setGrade($event->identity->grade);
-        $student->setVersion(1);
+        $student->setVersion($version);
         
-        $this->doctrine->getManager()->persist($student);
-        $this->doctrine->getManager()->flush();
+        $this->em->persist($student);
+        $this->em->flush();
+    }
+
+
+    
+    public function onClassRenamed(ClassOpened $event, $version) {
+        $student = $this->em->getRepository('JbnahanSchoolBundle:StudentsClass')->find($event->id);
+        
+        $student->setName($event->name);
+        $student->setVersion($version);
+        
+        $this->em->persist($student);
+        $this->em->flush();
     }
 }
