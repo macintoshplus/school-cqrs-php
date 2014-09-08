@@ -148,4 +148,8 @@ class StudentsClass
     {
         return $this->students;
     }
+
+    public function __toString(){
+        return $this->name." (".$this->grade.")";
+    }
 }

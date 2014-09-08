@@ -6,6 +6,10 @@ jbnahan_school_student_show:
     path:     /student/show/{id}
     defaults: { _controller: JbnahanSchoolBundle:Student:show }
 
+jbnahan_school_student_subscription:
+    path:     /student/subscription/{id}
+    defaults: { _controller: JbnahanSchoolBundle:Student:subscription }
+
 jbnahan_school_class_register:
     path:     /class/open
     defaults: { _controller: JbnahanSchoolBundle:Class:open }

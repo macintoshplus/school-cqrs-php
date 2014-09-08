@@ -15,10 +15,5 @@ class SubsribeStudentInClassCommand {
 
     public $studentId;
     
-
-    public function __construct($classId, $studentId) {
-        $this->classId = $classId;
-        $this->studentId = $studentId;
-    }
     
 }

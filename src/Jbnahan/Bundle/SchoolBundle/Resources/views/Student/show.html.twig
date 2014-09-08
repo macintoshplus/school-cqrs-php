@@ -21,4 +21,12 @@
 </tr>
 </tbody>
 </table>
+<a href="{{path('jbnahan_school_student_subscription',{'id':student.id})}}">Subcribe to a class</a>
+
+<p>Subscription</p>
+<ul>
+{% for item in subscription %}
+<li>{{item.classFullName}}</li>
+{% endfor %}
+</ul>
 {% endblock %}

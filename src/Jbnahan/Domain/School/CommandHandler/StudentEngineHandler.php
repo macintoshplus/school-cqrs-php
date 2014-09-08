@@ -38,4 +38,13 @@ class StudentEngineHandler extends CommandHandler {
         
         $this->repository->add($student);
     }
+
+    public function handleSubsribeStudentInClassCommand(Command\SubsribeStudentInClassCommand $command){
+        $student = $this->repository->load($command->studentId);
+        
+        $student->registerInClass($command->classId->getId(), $command->classId->__toString());
+
+        $this->repository->add($student);
+    }
+
 }

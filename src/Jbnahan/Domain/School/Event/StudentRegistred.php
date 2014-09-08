@@ -22,10 +22,11 @@ class StudentRegistred implements SerializableInterface {
     public $id;
     
     public static function deserialize(array $data){
+        print_r($data);
     	$e = new StudentRegistred();
     	$e->id = $data['id'];
-        //$date = \DateTime::createFromFormat('Y-m-d H:i:s', $data['bornOn']);
-    	$e->identity = new StudentIdentity($data['firstName'], $data['lastName'], $data['bornOn']);
+        $date = \DateTime::createFromFormat('Y-m-d H:i:s', $data['bornOn']['date'], new \DateTimeZone($data['bornOn']['timezone']));
+    	$e->identity = new StudentIdentity($data['firstName'], $data['lastName'], $date);
 		return $e; 
 	}
 

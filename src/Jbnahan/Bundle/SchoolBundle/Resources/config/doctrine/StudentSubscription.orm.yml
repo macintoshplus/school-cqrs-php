@@ -1,0 +1,18 @@
+Jbnahan\Bundle\SchoolBundle\Entity\StudentSubscription:
+    type: entity
+    table: student_subscription
+    repositoryClass: Jbnahan\Bundle\SchoolBundle\Entity\StudentSubscriptionRepository
+    id:
+        studentId:
+            id: true
+            type: string
+            length: 255
+        classId:
+            id: true
+            type: string
+            length: 255
+    fields:
+        classFullName:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

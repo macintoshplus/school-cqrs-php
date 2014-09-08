@@ -57,8 +57,6 @@ class ClassViewListener implements EventListenerInterface {
         $this->em->persist($student);
         $this->em->flush();
     }
-
-
     
     public function onClassRenamed(ClassRenamed $event, $version) {
         $student = $this->em->getRepository('JbnahanSchoolBundle:StudentsClass')->find($event->id);

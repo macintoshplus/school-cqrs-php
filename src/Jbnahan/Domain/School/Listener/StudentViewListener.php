@@ -9,7 +9,9 @@
 namespace Jbnahan\Domain\School\Listener;
 
 use Jbnahan\Domain\School\Event\StudentRegistred;
+use Jbnahan\Domain\School\Event\StudentSubscribedInClass;
 use Jbnahan\Bundle\SchoolBundle\Entity\Student;
+use Jbnahan\Bundle\SchoolBundle\Entity\StudentSubscription;
 
 use Broadway\EventHandling\EventListenerInterface;
 use Broadway\Domain\DomainMessageInterface;
@@ -54,6 +56,17 @@ class StudentViewListener implements EventListenerInterface {
         $student->setVersion($version);
         
         $this->em->persist($student);
+        $this->em->flush();
+    }
+
+    public function onStudentSubscribedInClass(StudentSubscribedInClass $event, $version) {
+        $subscription = new StudentSubscription();
+        $subscription->setClassId($event->classId);
+        $subscription->setStudentId($event->id);
+        $subscription->setClassFullName($event->classFullName);
+
+
+        $this->em->persist($subscription);
         $this->em->flush();
     }
 }

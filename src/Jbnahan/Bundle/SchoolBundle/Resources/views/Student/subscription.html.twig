@@ -1,0 +1,14 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}JbnahanSchoolBundle:Student:subscription{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Student:subscription page</h1>
+{{ form_start(form) }}
+    <p>{{ form_errors(form) }}</p>
+{{ form_rest(form) }}
+    <p>{{ form_row(form.classId) }}</p>
+    
+    <p>{{ form_row(form.save) }}</p>
+{{ form_end(form) }}
+{% endblock %}
