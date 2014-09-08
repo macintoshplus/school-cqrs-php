@@ -16,16 +16,19 @@ use Jbnahan\Domain\School\Model\ClassIdentity;
  *
  * @author jb
  */
-class ClassRenamed extends SerializableInterface {
+class ClassRenamed implements SerializableInterface {
     
     public $id;
 
     public $name;
 
+    public function __construct($id, $name){
+        $this->id = $id;
+        $this->name = $name;
+    }
+
     public static function deserialize(array $data){
-    	$e = new ClassRenamed();
-    	$e->id = $data['id'];
-    	$e->name = $data['name'];
+    	$e = new ClassRenamed($data['id'], $data['name']);
 		return $e; 
 	}
 

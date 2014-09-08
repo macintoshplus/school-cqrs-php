@@ -48,9 +48,10 @@ class Student extends EventSourcedAggregateRoot {
     public static function registration(RegisterStudentCommand $command){
         $student = new Student();
 
-        $identity = new StudentIdentity($command->firstName, $command->lastName, $command->bornOn);
-
-        $event = new StudentRegistred(array("id"=>$command->studentId, "identity"=>$identity));
+        $event = new StudentRegistred();
+        
+        $event->id = $command->studentId;
+        $event->identity = new StudentIdentity($command->firstName, $command->lastName, $command->bornOn);
         
         $student->apply($event);
 

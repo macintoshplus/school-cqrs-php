@@ -25,7 +25,6 @@ class StudentEngineHandler extends CommandHandler {
 
     public function __construct(EventSourcingRepository $repository){
         $this->repository = $repository;
-
     }
     
     /**
@@ -33,8 +32,8 @@ class StudentEngineHandler extends CommandHandler {
      * @param RegisterStudentCommand $command
      * @return void
      */
-    public function RegisterStudent(Command\RegisterStudentCommand $command){
-        
+    public function handleRegisterStudentCommand(Command\RegisterStudentCommand $command){
+
         $student = Student::registration($command);
         
         $this->repository->add($student);

@@ -28,10 +28,17 @@ class ClassController extends Controller
         $form->handleRequest($request);
         
         if($form->isValid()){
-            $command->classId = Uuid::uuid1()->toString();
+            $command->classId = $this->get('broadway.uuid.generator')->generate();
             
-            $this->get('broadway.command_handling.command_bus')->dispatch($command);
-            return $this->redirect($this->generateUrl('jbnahan_school_class_show',array('id'=>$command->classId)));
+            try{
+                $this->get('broadway.command_handling.command_bus')->dispatch($command);
+                $this->get('session')->getFlashBag()->add('notice', 'Class opened');
+                return $this->redirect($this->generateUrl('jbnahan_school_class_show',array('id'=>$command->classId)));
+
+            }catch(\Exception $e){
+                $this->get('session')->getFlashBag()->add('notice', 'Error : '.$e->getMessage());
+            }
+
         }
         
         return $this->render('JbnahanSchoolBundle:Class:open.html.twig', array(

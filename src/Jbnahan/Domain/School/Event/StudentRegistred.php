@@ -16,7 +16,7 @@ use Jbnahan\Domain\School\Model\StudentIdentity;
  *
  * @author jb
  */
-class StudentRegistred extends SerializableInterface {
+class StudentRegistred implements SerializableInterface {
     public $identity;
     
     public $id;
@@ -24,6 +24,7 @@ class StudentRegistred extends SerializableInterface {
     public static function deserialize(array $data){
     	$e = new StudentRegistred();
     	$e->id = $data['id'];
+        //$date = \DateTime::createFromFormat('Y-m-d H:i:s', $data['bornOn']);
     	$e->identity = new StudentIdentity($data['firstName'], $data['lastName'], $data['bornOn']);
 		return $e; 
 	}
@@ -32,6 +33,7 @@ class StudentRegistred extends SerializableInterface {
      * @return array
      */
     public function serialize(){
+        //$date = $this->identity->bornOn->format('Y-m-d H:i:s');
     	return array("firstName"=>$this->identity->firstName,"lastName"=>$this->identity->lastName,"bornOn"=>$this->identity->bornOn, "id"=>$this->id);
     }
 }

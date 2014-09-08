@@ -9,7 +9,7 @@
 namespace Jbnahan\Domain\School\CommandHandler;
 
 use Jbnahan\Domain\School\Command;
-use Jbnahan\Domain\School\Model;
+use Jbnahan\Domain\School\Model\StudentsClass;
 use Broadway\CommandHandling\CommandHandler;
 use Broadway\EventSourcing\EventSourcingRepository;
 
@@ -33,12 +33,12 @@ class ClassEngineHandler extends CommandHandler {
      * @param OpenClassCommand $command
      * @return void
      */
-    public function openClass(Command\OpenClassCommand $command){
+    public function handleOpenClassCommand(Command\OpenClassCommand $command){
         if(null===$command->classId){
             throw new Exception("Error : classId is empty", 1);
             
         }
-        $class = StudentClass::openClass($command);
+        $class = StudentsClass::openClass($command);
         $this->repository->add($class);
         
     }
@@ -47,7 +47,7 @@ class ClassEngineHandler extends CommandHandler {
      * @param OpenClassCommand $command
      * @return void
      */
-    public function renameClass(Command\RenameClassCommand $command){
+    public function handleRenameClassCommand(Command\RenameClassCommand $command){
         if(null===$command->classId){
             throw new Exception("Error : classId is empty", 1);
             

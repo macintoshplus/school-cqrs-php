@@ -16,16 +16,19 @@ use Jbnahan\Domain\School\Model\ClassIdentity;
  *
  * @author jb
  */
-class ClassOpened extends SerializableInterface {
+class ClassOpened implements SerializableInterface {
     
     public $id;
 
     public $identity;
+
+    public function __construct($id, $identity){
+        $this->id = $id;
+        $this->identity = $identity;
+    }
     
     public static function deserialize(array $data){
-    	$e = new ClassOpened();
-    	$e->id = $data['id'];
-    	$e->identity = new ClassIdentity($data['name'],$data['grade']);
+    	$e = new ClassOpened($data['id'], new ClassIdentity($data['name'],$data['grade']));
 		return $e; 
 	}
 
@@ -33,6 +36,6 @@ class ClassOpened extends SerializableInterface {
      * @return array
      */
     public function serialize(){
-    	return array("name"=>$this->identity->name, "grade"=>$this->indentity->grade,"id"=>$this->id);
+    	return array("name"=>$this->identity->name, "grade"=>$this->identity->grade,"id"=>$this->id);
     }
 }

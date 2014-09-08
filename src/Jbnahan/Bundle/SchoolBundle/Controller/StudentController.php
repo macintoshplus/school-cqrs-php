@@ -30,10 +30,14 @@ class StudentController extends Controller
         $form->handleRequest($request);
         
         if($form->isValid()){
-            $command->studentId = Uuid::uuid1()->toString();
-            
-            $this->get('broadway.command_handling.command_bus')->dispatch($command);
-            return $this->redirect($this->generateUrl('jbnahan_school_student_show',array('id'=>$command->studentId)));
+            $command->studentId = $this->get('broadway.uuid.generator')->generate();
+            try{
+                $this->get('broadway.command_handling.command_bus')->dispatch($command);
+                $this->get('session')->getFlashBag()->add('notice', 'Registration saved.');
+                return $this->redirect($this->generateUrl('jbnahan_school_student_show',array('id'=>$command->studentId)));
+            }catch(\Exception $e){
+                $this->get('session')->getFlashBag()->add('notice', 'Error : '.$e->getMessage());
+            }
         }
         
         return $this->render('JbnahanSchoolBundle:Student:register.html.twig', array(

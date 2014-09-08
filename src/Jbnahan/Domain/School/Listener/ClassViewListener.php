@@ -9,6 +9,7 @@
 namespace Jbnahan\Domain\School\Listener;
 
 use Jbnahan\Domain\School\Event\ClassOpened;
+use Jbnahan\Domain\School\Event\ClassRenamed;
 use Jbnahan\Bundle\SchoolBundle\Entity\StudentsClass;
 
 use Broadway\EventHandling\EventListenerInterface;
@@ -59,7 +60,7 @@ class ClassViewListener implements EventListenerInterface {
 
 
     
-    public function onClassRenamed(ClassOpened $event, $version) {
+    public function onClassRenamed(ClassRenamed $event, $version) {
         $student = $this->em->getRepository('JbnahanSchoolBundle:StudentsClass')->find($event->id);
         
         $student->setName($event->name);
