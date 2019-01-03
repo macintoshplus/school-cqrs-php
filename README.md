@@ -1,3 +1,6 @@
+This project is archived
+
+
 # Notes
 This project can change a lot. I try to use the 1.1.x library macintoshplus/litecqrs I forking. 
 I would add some information here from time to time.
